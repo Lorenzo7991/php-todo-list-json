@@ -19,7 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         die("Error decoding JSON file.");
     }
 
-    // Return ToDo data as an associative array
+    // Set the header to indicate JSON content
+    header('Content-Type: application/json');
+
+    // Return ToDo data as JSON
     echo json_encode($todos);
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // POST request for adding a new task
